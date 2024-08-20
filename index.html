@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+    <title>Apartment Search Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <!-- Main container -->
+    <div class="container mx-auto mt-10 p-5 max-w-lg bg-white shadow-lg rounded-lg relative">
+        <!-- Success Message -->
+        <div id="successMessage" class="hidden">
+            <h2 class="text-2xl font-bold text-green-600 mb-4">Success!</h2>
+            <p class="text-gray-700">Your form has been submitted successfully.</p>
+        </div>
+
+        <!-- Form -->
+        <div id="formContainer">
+            <h1 class="text-3xl font-bold mb-6 text-gray-800">Apartment Search Form</h1>
+            
+            <form id="apartmentForm" action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Dd2000001zCq5" method="POST">
+                <input type="hidden" name="oid" value="00Dd2000001zCq5">
+                <input type="hidden" name="retURL" value="http://">
+                <input type="hidden" id="token" name="Token__c" value="">
+                <input type="hidden" id="chatId" name="ChatId__c" value="">
+
+                <!-- Description Section -->
+                <div class="mb-6">
+                    <p class="text-gray-700">I will search an apartment using Kleinanzeigen.</p>
+                    <p class="text-gray-700">I will post messages on behalf of you.</p>
+                    <p class="text-gray-700">I will send you an Ad and scheduled date/time.</p>
+                </div>
+
+                <!-- Flexibility Checkbox -->
+                <div class="mb-4">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600" name="Flexibility__c" required>
+                        <span class="ml-2 text-gray-700">Yes, I am flexible</span>
+                    </label>
+                </div>
+
+                <!-- Ready to Pay for Previous Tenants Checkbox -->
+                <div class="mb-4">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600" name="Ready_to_Pay__c" required>
+                        <span class="ml-2 text-gray-700">Yes, I am ready</span>
+                    </label>
+                </div>
+
+                <!-- First Name Field -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="first_name">First Name</label>
+                    <input type="text" id="first_name" name="first_name" class="form-input block w-full mt-1 bg-white border border-gray-300 text-gray-700 h-10 px-3 py-2 rounded-lg focus:outline-none focus:border-green-500" required>
+                </div>
+
+                <!-- Employment Dropdown -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="Employment__c">Employment</label>
+                    <select id="Employment__c" name="Employment__c" class="form-select block w-full mt-1 bg-white border border-gray-300 text-gray-700 h-10 px-3 py-2 rounded-lg focus:outline-none focus:border-green-500" required>
+                        <option value="">--None--</option>
+                        <option value="Employed">Employed</option>
+                        <option value="Self Employed">Self Employed</option>
+                        <option value="Not Employed">Not Employed</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600" name="IsProbationPeriod__c" value="1">
+                        <span class="ml-2 text-gray-700">I have probation period</span>
+                    </label>
+                </div>
+
+                <!-- Income Dropdown -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="Income__c">Income</label>
+                    <select id="Income__c" name="Income__c" class="form-select block w-full mt-1 bg-white border border-gray-300 text-gray-700 h-10 px-3 py-2 rounded-lg focus:outline-none focus:border-green-500" required>
+                        <option value="">--None--</option>
+                        <option value="1000">1000-1500</option>
+                        <option value="1500">1500-2000</option>
+                        <option value="2000">2000-2500</option>
+                        <option value="2500">2500-3000</option>
+                        <option value="3000">3000-3500</option>
+                        <option value="3500">3500-4000</option>
+                        <option value="4000">4000-4500</option>
+                        <option value="4500">4500-5000</option>
+                        <option value="5000">5000-5500</option>
+                        <option value="5500">5500-6000</option>
+                        <option value="6000">6000-6500</option>
+                        <option value="6500">6500-7000</option>
+                        <option value="7000">7000-7500</option>
+                        <option value="7500">7500-8000</option>
+                        <option value="8000">8000-8500</option>
+                    </select>
+                </div>
+
+                <!-- Household Dropdown -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="Household__c">Household</label>
+                    <select id="Household__c" name="Household__c" class="form-select block w-full mt-1 bg-white border border-gray-300 text-gray-700 h-10 px-3 py-2 rounded-lg focus:outline-none focus:border-green-500" required>
+                        <option value="">--None--</option>
+                        <option value="Single">Single</option>
+                        <option value="Married">Married</option>
+                        <option value="Family">Family</option>
+                    </select>
+                </div>
+
+                <!-- Family Members Dropdown -->
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="NumberOfPeopleinHousehold__c">Number Of People In Household</label>
+                    <select id="NumberOfPeopleinHousehold__c" name="NumberOfPeopleinHousehold__c" class="form-select block w-full mt-1 bg-white border border-gray-300 text-gray-700 h-10 px-3 py-2 rounded-lg focus:outline-none focus:border-green-500" required>
+                        <option value="">--None--</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+
+                <!-- Readiness of Documents Checkbox -->
+                <div class="mb-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600" name="IsDocumentsReady__c" value="1">
+                        <span class="ml-2 text-gray-700">Readiness of all required documents</span>
+                    </label>
+                </div>
+                <!-- <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="DocumentsReady__c">Documents Ready</label>
+                    <select id="DocumentsReady__c" name="DocumentsReady__c" class="form-select block w-full mt-1 bg-white border border-gray-300 text-gray-700 h-10 px-3 py-2 rounded-lg focus:outline-none focus:border-green-500" required>
+                        <option value="">--None--</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </div> -->
+
+                <!-- Terms and Conditions Checkbox -->
+                <div class="mb-6">
+                    <label class="flex items-center">
+                        <input type="checkbox" id="termsCheckbox" class="form-checkbox h-5 w-5 text-green-600" name="terms_accepted" required>
+                        <span class="ml-2 text-gray-700">I have read and agree to the <a href="#" id="termsLink" class="text-blue-500 underline">Terms and Conditions</a></span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex justify-center">
+                    <button type="submit" id="submitButton" name="submit" class="bg-gray-400 text-white font-bold py-2 px-4 rounded-full cursor-not-allowed" disabled>
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Terms and Conditions Modal -->
+    <div id="termsModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 md:w-3/4 lg:w-1/2 shadow-lg rounded-md bg-white">
+            <div class="mt-3 text-center">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Terms and Conditions</h3>
+                <div class="mt-2 px-7 py-3 text-left">
+                    <h4 class="text-md font-bold">Terms and Conditions & Data Policy for Apartment Search Form</h4>
+                    <p>By submitting this form, you agree to the following terms and conditions regarding the collection and use of your personal information:</p>
+                    <ol class="list-decimal list-inside">
+                        <li><strong>Purpose of Data Collection</strong>: The information you provide in this form will be used to assist in your apartment search and to communicate with you about potential apartment listings.</li>
+                        <li><strong>Information Collected</strong>: We collect your first name, employment status and duration, income level, household type, number of family members, document readiness status, flexibility status, willingness to pay for previous tenants, and a unique token and chat ID for identification purposes.</li>
+                        <li><strong>Use of Information</strong>: Your information will be used to match you with suitable apartment listings, communicate with landlords or property managers on your behalf, send you information about potential apartments and viewing times, and improve our apartment search services.</li>
+                        <li><strong>Data Sharing</strong>: Your information will be shared with our internal team managing the apartment search process, potential landlords or property managers of apartments that match your criteria, and Salesforce.com, our customer relationship management system.</li>
+                        <li><strong>Data Storage</strong>: Your information will be stored securely in our Salesforce database. We implement appropriate technical and organizational measures to protect your personal data against unauthorized or unlawful processing, accidental loss, destruction, or damage.</li>
+                        <li><strong>Data Retention</strong>: We will retain your information for as long as necessary to fulfill the purposes outlined in this policy unless a longer retention period is required or permitted by law.</li>
+                        <li><strong>Your Rights</strong>: You have the right to access the personal information we hold about you, request correction of any inaccurate information, request deletion of your information (subject to any legal obligations we may have to retain certain information), and withdraw your consent at any time.</li>
+                        <li><strong>Consent</strong>: By submitting this form, you consent to the collection, use, and sharing of your information as described in this policy.</li>
+                        <li><strong>Changes to This Policy</strong>: We may update this policy from time to time. Any changes will be posted on this page.</li>
+                        <li><strong>Contact Us</strong>: If you have any questions about this policy or our data practices, please contact us at [insert contact information].</li>
+                    </ol>
+                    <p>By using our apartment search service, you acknowledge that you have read and understood this policy and agree to its terms.</p>
+                </div>
+                <div class="items-center px-4 py-3">
+                    <button id="closeTerms" class="px-4 py-2 bg-green-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to get URL parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        };
+
+        // Set the token value from URL parameter
+        document.getElementById('token').value = getUrlParameter('token');
+
+        // Set the chatId value from URL parameter
+        document.getElementById('chatId').value = getUrlParameter('userId');
+
+        // Function to show/hide form and success message based on URL parameter
+        function toggleFormAndMessage() {
+            var showSuccess = getUrlParameter('showSuccess');
+            var formContainer = document.getElementById('formContainer');
+            var successMessage = document.getElementById('successMessage');
+
+            if (showSuccess === 'true') {
+                formContainer.classList.add('hidden');
+                successMessage.classList.remove('hidden');
+            } else {
+                formContainer.classList.remove('hidden');
+                successMessage.classList.add('hidden');
+            }
+        }
+
+        // Call the function on page load
+        toggleFormAndMessage();
+
+        // Handle form submission
+        document.getElementById('apartmentForm').addEventListener('submit', function(event) {
+            // If you want to handle the form submission via AJAX, you can uncomment the following lines:
+            // event.preventDefault();
+            // ... handle form submission via AJAX ...
+            // After successful submission, you can show the success message:
+            // document.getElementById('formContainer').classList.add('hidden');
+            // document.getElementById('successMessage').classList.remove('hidden');
+        });
+
+        // Terms and Conditions Modal
+        var termsLink = document.getElementById('termsLink');
+        var termsModal = document.getElementById('termsModal');
+        var closeTerms = document.getElementById('closeTerms');
+
+        termsLink.onclick = function(e) {
+            e.preventDefault();
+            termsModal.classList.remove('hidden');
+        }
+
+        closeTerms.onclick = function() {
+            termsModal.classList.add('hidden');
+        }
+
+        window.onclick = function(event) {
+            if (event.target == termsModal) {
+                termsModal.classList.add('hidden');
+            }
+        }
+
+        // Function to toggle submit button state
+        function toggleSubmitButton() {
+            var termsCheckbox = document.getElementById('termsCheckbox');
+            var submitButton = document.getElementById('submitButton');
+            
+            if (termsCheckbox.checked) {
+                submitButton.disabled = false;
+                submitButton.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                submitButton.classList.add('bg-green-500', 'hover:bg-green-700');
+            } else {
+                submitButton.disabled = true;
+                submitButton.classList.remove('bg-green-500', 'hover:bg-green-700');
+                submitButton.classList.add('bg-gray-400', 'cursor-not-allowed');
+            }
+        }
+
+        // Add event listener to terms checkbox
+        document.getElementById('termsCheckbox').addEventListener('change', toggleSubmitButton);
+
+        // Call toggleSubmitButton on page load to set initial state
+        toggleSubmitButton();
+    </script>
+</body>
+</html>
