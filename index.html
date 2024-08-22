@@ -8,6 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         .hidden { display: none; }
+        select[multiple] {
+            height: auto;
+            min-height: 200px; /* Adjust this value to make the field taller */
+        }
     </style>
 </head>
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
@@ -160,6 +164,25 @@
                         <option value="4">4 👨‍👩‍👧‍👦</option>
                         <option value="5">5 👨‍👩‍👧‍👦👶</option>
                         <option value="6">6 👨‍👩‍👧‍👦👶👶</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 mb-2" for="District__c">District</label>
+                    <select id="District__c" name="District__c" multiple="multiple" class="form-select block w-full mt-1 bg-white border border-gray-300 text-gray-700 h-10 px-3 py-2 rounded-lg focus:outline-none focus:border-green-500" required>
+                        <option value="charlottenburg_wilmersdorf">Charlottenburg-Wilmersdorf</option>
+                        <option value="friedrichshain_kreuzberg">Friedrichshain-Kreuzberg</option>
+                        <option value="lichtenberg">Lichtenberg</option>
+                        <option value="marzahn_hellersdorf">Marzahn-Hellersdorf</option>
+                        <option value="mitte">Mitte</option>
+                        <option value="neukölln">Neukölln</option>
+                        <option value="pankow">Pankow</option>
+                        <option value="reinickendorf">Reinickendorf</option>
+                        <option value="potsdam">Potsdam</option>
+                        <option value="spandau">Spandau</option>
+                        <option value="steglitz_zehlendorf">Steglitz-Zehlendorf</option>
+                        <option value="tempelhof_schöneberg">Tempelhof-Schöneberg</option>
+                        <option value="treptow_köpenick">Treptow-Köpenick</option>
                     </select>
                 </div>
 
